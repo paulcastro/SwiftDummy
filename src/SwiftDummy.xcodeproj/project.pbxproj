@@ -156,12 +156,14 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 76CMF53Q35;
 						DevelopmentTeamName = "International Business Machines Corp.";
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 					D6EA8E221D26EF4700358831 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 76CMF53Q35;
 						DevelopmentTeamName = "International Business Machines Corp.";
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 						TestTargetID = D6EA8E0E1D26EF4700358831;
 					};
@@ -416,6 +418,7 @@
 				D6EA8E2E1D26EF4700358831 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D6EA8E2F1D26EF4700358831 /* Build configuration list for PBXNativeTarget "SwiftDummyTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +427,7 @@
 				D6EA8E311D26EF4700358831 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

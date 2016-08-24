@@ -10,14 +10,14 @@ import Foundation
 
 // WhiskKit protocols
 protocol WhiskAction {
-    func run(args: [String:Any]) -> [String:Any]
+    func run(_ args: [String:Any]) -> [String:Any]
 }
 
 
 // WhiskKit implementations
 class WhiskRule {
-    func setRule(trigger: WhiskTrigger, action: WhiskAction) {
-        trigger.mapAction(action: action)
+    func setRule(_ trigger: WhiskTrigger, _ action: WhiskAction) {
+        trigger.mapAction(action)
     }
 }
 
@@ -25,13 +25,13 @@ class WhiskTrigger {
     
     var actions = [WhiskAction]()
     
-    func mapAction(action: WhiskAction) {
+    func mapAction(_ action: WhiskAction) {
         actions.append(action)
     }
     
-    func fire(args: [String:Any]) {
+    func fire(_ args: [String:Any]) {
         for action in actions {
-            let _ = action.run(args: args)
+            let _ = action.run(args)
         }
     }
 }
@@ -40,15 +40,15 @@ class WhiskSequence {
     
     var actions = [WhiskAction]()
 
-    func setActions(actions: [WhiskAction]) {
+    func setActions(_ actions: [WhiskAction]) {
         self.actions = actions
     }
     
-    func run(args:[String:Any]) -> [String:Any] {
+    func run(_ args:[String:Any]) -> [String:Any] {
         
         var result = args
         for action in actions {
-            result = action.run(args: result)
+            result = action.run(result)
         }
         
         return result

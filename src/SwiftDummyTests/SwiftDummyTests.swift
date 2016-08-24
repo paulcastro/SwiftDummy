@@ -36,7 +36,7 @@ class SwiftDummyTests: XCTestCase {
     func testHelloWorldAction() {
         let action = HelloWorldAction()
         
-        let result = action.run(args: ["name": "Paul"])
+        let result = action.run(["name": "Paul"])
         print("Got result \(result)")
         
         XCTAssert(result["greeting"] != nil)
@@ -45,7 +45,7 @@ class SwiftDummyTests: XCTestCase {
     func testTimeAction() {
         let action = TimeAction()
         
-        let result = action.run(args: [String:Any]())
+        let result = action.run([String:Any]())
         print ("got result \(result)")
         
         
@@ -57,9 +57,9 @@ class SwiftDummyTests: XCTestCase {
         let action = HelloWorldAction()
         
         let rule = WhiskRule()
-        rule.setRule(trigger: trigger, action: action)
+        rule.setRule(trigger, action)
         
-        trigger.fire(args: ["name":"Paul"])
+        trigger.fire(["name":"Paul"])
     }
     
     func testSequence() {
@@ -68,9 +68,9 @@ class SwiftDummyTests: XCTestCase {
         let timeAction = TimeAction()
         let helloAction = HelloWorldAction()
         
-        sequence.setActions(actions: [timeAction, helloAction])
+        sequence.setActions([timeAction, helloAction])
         
-        let result = sequence.run(args: ["name":"Paul"])
+        let result = sequence.run(["name":"Paul"])
         
         print("Sequence result is \(result)")
         

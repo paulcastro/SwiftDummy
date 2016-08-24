@@ -12,12 +12,13 @@ import Foundation
 
 class TimeAction: WhiskAction
 {
-    func run(args: [String:Any]) -> [String:Any] {
+    func run(_ args: [String:Any]) -> [String:Any] {
         
         let date = Date()
         let calendar = Calendar.current
 
-        let components = calendar.components([Calendar.Unit.hour, Calendar.Unit.minute], from: date)
+        let components = calendar.dateComponents([Calendar.Component.hour, Calendar.Component.minute], from: date)
+
         let hour = components.hour
         let minutes = components.minute
         
@@ -30,7 +31,7 @@ class TimeAction: WhiskAction
 }
 
 class HelloWorldAction: WhiskAction {
-    func run(args: [String:Any]) -> [String:Any] {
+    func run(_ args: [String:Any]) -> [String:Any] {
         
         var msg = ""
         

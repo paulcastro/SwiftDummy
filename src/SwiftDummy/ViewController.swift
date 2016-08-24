@@ -20,8 +20,8 @@ class ViewController: UIViewController {
         
         let sequence = WhiskSequence()
         
-        sequence.setActions(actions: [timeAction,helloAction])
-        let resp = sequence.run(args: ["name":"Paul"])
+        sequence.setActions([timeAction,helloAction])
+        let resp = sequence.run(["name":"Paul"])
         
         print("Response from sequence is \(resp)")
     }
