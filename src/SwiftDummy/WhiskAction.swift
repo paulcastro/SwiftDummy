@@ -10,45 +10,45 @@ import Foundation
 
 // WhiskKit protocols
 protocol WhiskAction {
-    func run(_ args: [String:Any]) -> [String:Any]
+    func run(args: [String:Any]) -> [String:Any]
 }
 
 
 // WhiskKit implementations
-class WhiskRule {
-    func setRule(_ trigger: WhiskTrigger, _ action: WhiskAction) {
-        trigger.mapAction(action)
+public class WhiskRule {
+    init(trigger: WhiskTrigger, action: WhiskAction) {
+        trigger.mapAction(action: action)
     }
 }
 
-class WhiskTrigger {
+public class WhiskTrigger {
     
     var actions = [WhiskAction]()
     
-    func mapAction(_ action: WhiskAction) {
+    func mapAction(action: WhiskAction) {
         actions.append(action)
     }
     
-    func fire(_ args: [String:Any]) {
+    func fire(args: [String:Any]) {
         for action in actions {
-            let _ = action.run(args)
+            let _ = action.run(args: args)
         }
     }
 }
 
-class WhiskSequence {
+public class WhiskSequence {
     
-    var actions = [WhiskAction]()
-
-    func setActions(_ actions: [WhiskAction]) {
+    var actions: [WhiskAction]!
+    
+    init(actions: [WhiskAction]) {
         self.actions = actions
     }
     
-    func run(_ args:[String:Any]) -> [String:Any] {
+    func run(args:[String:Any]) -> [String:Any] {
         
         var result = args
         for action in actions {
-            result = action.run(result)
+            result = action.run(args: result)
         }
         
         return result
